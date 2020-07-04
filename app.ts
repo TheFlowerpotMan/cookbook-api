@@ -19,11 +19,11 @@ app.get('/recipes', function (req, res) {
       if (err) {
         connection.release();
         console.log(err);
-        throw err
+        res.status(500).send(err);
       };
       console.log('Recipe query successful');
-      res.send(JSON.stringify(rows));
-      res.status(500).send(err);
+      res.status(200).send(JSON.stringify(rows));
+      connection.release();
     });
   });
 });
