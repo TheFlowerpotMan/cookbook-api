@@ -38,6 +38,6 @@ https.createServer({
   key: fs.readFileSync('server.key'),
   cert: fs.readFileSync('server.cert')
 }, app)
-  .listen(9000, function () {
-    console.log('Cookbook API listening on port 9000!');
+  .listen(connInfo.port, function () {
+    console.log(`Cookbook API listening on port ${connInfo.port}!`);
   });
