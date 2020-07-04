@@ -2,7 +2,7 @@ import express from 'express';
 import mysql from 'mysql';
 import fs from 'fs';
 import https from 'https';
-var connInfo = require('../cookbook-api-conn.json');
+var connInfo = require('../../cookbook-api-conn.json');
 var app = express();
 
 var pool = mysql.createPool(connInfo.db);
