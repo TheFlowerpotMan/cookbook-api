@@ -1,0 +1,21 @@
+{
+  "name": "cookbookapi",
+  "version": "1.0.0",
+  "description": " Api that supports cookbook applications",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc": "tsc"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.6",
+    "@types/mysql": "^2.15.14",
+    "typescript": "^3.9.6"
+  }
+}
