@@ -1,7 +1,7 @@
 import express from 'express';
 import mysql from 'mysql';
 import fs from 'fs';
-import https from 'https';
+import http from 'http';
 var connInfo = require('../../cookbook-api-conn.json');
 var app = express();
 
@@ -34,10 +34,6 @@ app.get('*', function (req, res) {
   res.send('There is nothing at this endpoint');
 });
 
-https.createServer({
-  key: fs.readFileSync('server.key'),
-  cert: fs.readFileSync('server.cert')
-}, app)
-  .listen(connInfo.port, function () {
-    console.log(`Cookbook API listening on port ${connInfo.port}!`);
-  });
+http.createServer(app).listen(connInfo.port, function () {
+  console.log(`Cookbook API listening on port ${connInfo.port}!`);
+});
