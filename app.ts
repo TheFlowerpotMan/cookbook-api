@@ -15,7 +15,7 @@ app.get('/recipes', function (req, res) {
       console.log(err);
       res.status(500).send(err);
     }
-    connection.query('SELECT * FROM `recipes`', function (err, rows, fields) {
+    connection.query('SELECT * FROM recipes r JOIN instruction_steps i ON r.id = i.recipe_id', function (err, rows, fields) {
       if (err) {
         connection.release();
         console.log(err);
