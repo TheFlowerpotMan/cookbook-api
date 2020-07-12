@@ -19,7 +19,7 @@ app.get('/recipes', function (req, res) {
       SELECT 
         * 
       FROM recipes r 
-      JOIN instruction_steps is ON r.id = is.recipe_id
+      JOIN instruction_steps inst ON r.id = inst.recipe_id
       JOIN recipe_to_ingredients rti ON r.id = rti.recipe_id
       JOIN ingredients i ON rti.ingredient_id = i.id
       `, function (err, rows, fields) {
