@@ -26,7 +26,7 @@ app.get('/recipes', function (req, res) {
         r.description,
         r.date_modified,
         CONCAT('[',GROUP_CONCAT(CONCAT('{"id":',inst.id,',"sort":',inst.sort_order,',"instruction":"',inst.instruction,'"}') ORDER BY inst.sort_order ASC),']') AS instructions,
-        CONCAT('[',GROUP_CONCAT(CONCAT('{"id":',i.id,',"name":',i.name,',"amount":"',rti.amount,',"unit":"',rti.unit,'"}')),']') AS ingredients,
+        CONCAT('[',GROUP_CONCAT(CONCAT('{"id":',i.id,',"name":',i.name,',"amount":"',rti.amount,',"unit":"',rti.unit,'"}')),']') AS ingredients
       FROM recipes r
       JOIN instruction_steps inst ON r.id = inst.recipe_id
       JOIN recipe_to_ingredients rti ON r.id = rti.recipe_id
