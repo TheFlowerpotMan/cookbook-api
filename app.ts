@@ -15,7 +15,14 @@ app.get('/recipes', function (req, res) {
       console.log(err);
       res.status(500).send(err);
     }
-    connection.query('SELECT * FROM recipes r JOIN instruction_steps i ON r.id = i.recipe_id', function (err, rows, fields) {
+    connection.query(`
+      SELECT 
+        * 
+      FROM recipes r 
+      JOIN instruction_steps is ON r.id = is.recipe_id
+      JOIN recipe_to_ingredients rti ON r.id = rti.recipe_id
+      JOIN ingredients i ON rti.ingredient_id = i.id
+      `, function (err, rows, fields) {
       if (err) {
         connection.release();
         console.log(err);
