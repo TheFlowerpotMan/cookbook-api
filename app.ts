@@ -2,6 +2,7 @@ import express from 'express';
 import mysql from 'mysql';
 import fs from 'fs';
 import http from 'http';
+import { RecipeService } from 'services/recipeService';
 var connInfo = require('../../cookbook-api-conn.json');
 var app = express();
 
@@ -44,6 +45,14 @@ app.get('/recipes', function (req, res) {
       connection.release();
     });
   });
+});
+
+app.post('/newRecipe', function(req, res) {
+  let newRecipeObject = req.body;
+  let newRecipe = RecipeService.buildRecipe(newRecipeObject);
+  // let newInstructions = buildInstructions(newRecipeObject);
+  // let newIngredients = buildIngredients(newRecipeObject);
+  // let newRecipeToIngredients = buildAssociation(newRecipeObject); 
 });
 
 // Wildlcard route

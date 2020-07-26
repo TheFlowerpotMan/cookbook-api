@@ -2,7 +2,7 @@
   "name": "cookbookapi",
   "version": "1.0.0",
   "description": " Api that supports cookbook applications",
-  "main": "app.js",
+  "main": "app.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "compile": "tsc"
